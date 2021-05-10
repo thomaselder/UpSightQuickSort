@@ -1,0 +1,41 @@
+﻿Option Explicit
+
+Private Sub Workbook_Open()
+
+    SetActiveSortComboBoxItems
+    SetSortDateComboBoxItems
+    
+End Sub
+
+
+Private Sub SetSortDateComboBoxItems()
+
+    Const DATE_OFFSET_MAX As Long = 29
+    
+    Dim currentDate As Date
+    Dim dateOffsetCurrent As Long
+    
+    currentDate = Date
+    
+    Sheet1.SortDateComboBox.Clear
+    
+    For dateOffsetCurrent = 0 To DATE_OFFSET_MAX
+        With Sheet1.SortDateComboBox
+            .AddItem Format(currentDate - dateOffsetCurrent, "yyyy-mm-dd")
+        End With
+    Next dateOffsetCurrent
+    
+    Sheet1.SortDateComboBox.Value = Sheet1.SortDateComboBox.List(0)
+
+End Sub
+
+
+Private Sub SetActiveSortComboBoxItems()
+
+    With Sheet1.ActiveSortComboBox
+        .AddItem "LEXKY-D"
+        .AddItem "LEXKY-T"
+        .AddItem "LEXKY-N"
+    End With
+
+End Sub

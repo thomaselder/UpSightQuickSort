@@ -1,0 +1,93 @@
+﻿Option Explicit
+'@IgnoreModule
+
+Private app As AppController
+
+
+Private Sub ArchiveLoadsButton_Click()
+
+    If app Is Nothing Then
+        Set app = New AppController
+    End If
+    
+    app.SaveToArchiveButtonClick_EventHandler
+End Sub
+
+Private Sub AuditTrailButton_Click()
+    
+    If app Is Nothing Then
+        Set app = New AppController
+    End If
+    
+    app.AuditTrailButtonClick_EventHandler
+
+End Sub
+
+
+
+Private Sub ClearRecordsButton_Click()
+
+    If app Is Nothing Then
+        Set app = New AppController
+    End If
+    
+    app.ClearRecordsButtonClick_EventHandler
+
+End Sub
+
+
+Private Sub CreateLoadUpdateFormButton_Click()
+
+    If app Is Nothing Then
+        Set app = New AppController
+    End If
+    
+    app.LoadUpdateFormBuilderButtonClick_EventHandler
+
+End Sub
+
+
+Private Sub ESRVolumeButton_Click()
+
+    If app Is Nothing Then
+        Set app = New AppController
+    End If
+    
+    app.ESRUpdate_EventHandler Me.ActiveSortComboBox.Value, CDate(Me.SortDateComboBox.Value)
+
+End Sub
+
+
+Private Sub FinalUpdateButton_Click()
+
+    If app Is Nothing Then
+        Set app = New AppController
+    End If
+    
+    app.FinalUpdateButtonClick_EventHandler
+
+End Sub
+
+
+Private Sub InitialUpdateButton_Click()
+
+    If app Is Nothing Then
+        Set app = New AppController
+    End If
+    
+    app.InitialUpdateButtonClick_EventHandler
+
+End Sub
+
+
+Private Sub SortDateComboBox_Change()
+
+End Sub
+
+Private Sub Worksheet_Activate()
+
+    If app Is Nothing Then
+        Set app = New AppController
+    End If
+
+End Sub
